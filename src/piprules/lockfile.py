@@ -136,7 +136,9 @@ class LockFile(schematics.models.Model):
 
     def to_pip_format(self):
         env_reqs = self.get_requirements_for_current_environment()
-        pip_reqs = sorted(["%s==%s" % (name, req.version) for name, req in env_reqs.items()])
+        # We sort just by the name as the '-' and '=' signs change the order
+        pip_reqs = sorted([(name, req.version) for name, req in env_reqs.items()], key=lambda x: x[0])
+        pip_reqs = ["%s==%s" % req for req in pip_reqs]
         pip_reqs.append("")  # adding an empty line at the end of the file
         return "\n".join(pip_reqs)
 
