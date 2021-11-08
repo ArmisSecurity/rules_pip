@@ -126,6 +126,12 @@ class LockFile(schematics.models.Model):
         with open(path, mode='w') as lock_file:
             lock_file.write(json_string)
 
+        env_reqs = self.get_requirements_for_current_environment()
+
+        pip_reqs = sorted(["%s==%s" % (name, req.version) for name, req in env_reqs.items()])
+        with open("%s.%s.txt" % (path[:-5], _CURRENT_ENVIRONMENT.name), mode='w') as lock_file_txt:
+            lock_file_txt.write("\n".join(pip_reqs))
+
     def to_json(self):
         return json.dumps(self.to_primitive(), indent=2, sort_keys=True)
 
