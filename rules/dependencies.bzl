@@ -16,8 +16,8 @@ def pip_rules_dependencies():
 
     _remote_wheel(
         name = "setuptools",
-        url = "https://files.pythonhosted.org/packages/96/06/c8ee69628191285ddddffb277bd5abdf769166e7a14b867c2a172f0175b1/setuptools-40.4.3-py2.py3-none-any.whl",
-        sha256 = "ce4137d58b444bac11a31d4e0c1805c69d89e8ed4e91fde1999674ecc2f6f9ff",
+        url = "https://files.pythonhosted.org/packages/75/b3/0a106dfaf7f48aef638da80b32608617cc8de4b24a22c8cd3759c32e5d30/setuptools-41.1.0-py2.py3-none-any.whl",
+        sha256 = "bce3560fae29e9efa45fdb6e9fceddb1cde0cccebb050ee134262283b3ccbc7b",
     )
 
     _remote_wheel(
